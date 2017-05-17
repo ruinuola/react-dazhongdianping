@@ -1,9 +1,10 @@
 import React from 'react'
 import { render } from 'react-dom'
+import { hashHistory } from 'react-router'
 
-import Hello from './containers/Hello'
+import RouteMap from './router/routeMap'
 
 render(
-    <Hello/>,
+    <RouteMap history={hashHistory}/>,
     document.getElementById('root')
 )
