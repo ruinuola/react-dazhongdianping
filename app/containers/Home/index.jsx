@@ -1,12 +1,12 @@
 import React from 'react'
-import { link } from 'react-router'
+import { Link } from 'react-router'
 
 class Home extends React.Component {
 	render() {
 		return (
 				<div>
 					<p>Home</p>
-					<link to="/list">to list</link>
+					<Link to="/list">to list</Link>
 				</div>
 			)
 	}
