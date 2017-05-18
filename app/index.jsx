@@ -1,10 +1,16 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { hashHistory } from 'react-router'
+import { Provider } from 'react-redux'
 
-import RouteMap from './router/routeMap'
+import configureStore from './store/configureStore'
+
+import Hello from './containers/Hello'
+
+const store = configureStore()
 
 render(
-    <RouteMap history={hashHistory}/>,
+    <Provider store={store}>
+    	<Hello/>
+    </Provider>,
     document.getElementById('root')
 )
