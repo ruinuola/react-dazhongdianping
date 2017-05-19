@@ -8,6 +8,10 @@ import Hello from './containers/Hello'
 
 const store = configureStore()
 
+import { getData, postData } from './fetch/test.js'
+getData();
+postData();
+
 render(
     <Provider store={store}>
     	<Hello/>
