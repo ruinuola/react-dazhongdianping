@@ -13,9 +13,8 @@ class Home extends React.Component {
 	render(){
 		return (
 			<div>
-				<HomeHeader cityName={'深圳'}/>
+				<HomeHeader cityName={this.props.userinfo.cityName}/>
 				<Category/>
-				<div style={{height: '15px'}}>{/* 分割线 */}</div>
 			</div>
 		)
 	}

@@ -21,10 +21,10 @@ class RouteMap extends React.Component {
              <Router history={this.props.history} onUpdate={this.updateHandle.bind(this)}>
                 <Route path='/' component={App}>
                     <IndexRoute component={Home}/>
-                    <Route path='/city' component={City}/>
-                    <Route path='/User' component={User}/>
-                    <Route path="/search/:type(/:keyword)" component={Search}/>
-                    <Route path="/detail/:id" component={Detail}/>
+                    <Route path='city' component={City}/>
+                    <Route path='User' component={User}/>
+                    <Route path="search/:type(/:keyword)" component={Search}/>
+                    <Route path="detail/:id" component={Detail}/>
                     <Route path="*" component={NotFound}/>
                 </Route>
             </Router>

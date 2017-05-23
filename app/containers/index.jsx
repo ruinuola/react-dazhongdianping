@@ -1,40 +1,61 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import PureRenderMixin from 'react-addons-pure-render-mixin'
+import LocalStore from '../util/localStore.js'
+import {CITYNAME} from '../config/localStoreKey.js'
+
 import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 
 import * as userInfoActionsFromOtherFile from '../actions/userinfo'
 
 class App extends React.Component {
+    constructor(props, context) {
+        super(props, context);
+        this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
+        this.state = {
+            initDone: false
+        }
+    }
     render() {
         return (
             <div>
             	{
                     this.state.initDone?
-                        this.props.children:
-                        <div>ÕıÔÚ¼ÓÔØ...</div>
-                }
+            	        this.props.children:
+                        <div>åŠ è½½ä¸­ã€‚ã€‚ã€‚</div>
+            	}
             </div>
         )
     }
-    // componentDidMount() {
-    // 	// Ä£ÄâµÇÂ½
+    componentDidMount() {
+    // 	// è·å–ä½ç½®ä¿¡æ¯
     // 	this.props.userinfoActions.login({
     // 		userid: 'abc',
     // 		city: 'beijing'
     // 	})
-    // }
+        //ä»localstoregeé‡Œè·å–åŸå¸‚åˆ—è¡¨
+        let cityName = LocalStore.getItem(CITYNAME)
+        if (cityName === null) {
+            cityName = 'åŒ—äº¬'
+        }
+        
+        this.props.userinfoActions.update({
+            cityName: cityName
+        })
+
+        this.setState({initDone:true})
+    }
 }
 
-// Í¨¹ıÏÂÃæµÄ·â×°,¾Í°Ñ userinfo ºÍuserinfoActions µ±×÷props´«Èëµ½HelloÖĞÁË,¼´ÔÚHello×é¼şÖĞÍ¨¹ı this.props.userinfo ºÍ this.props.userinfoActions ¼´¿É»ñÈ¡Êı¾İºÍactions
 function mapStateToProps(state){
 	return {
-		userinfo: state.userinfo
+		// userinfo: state.userinfo
 	}
 }
 
 function mapDispatchToProps(dispatch){
 	return {
-		userinfoActions: bindActionCreators(userinfoActions, dispatch)
+		userinfoActions: bindActionCreators(userInfoActionsFromOtherFile, dispatch)
 	}
 }
 
@@ -42,3 +63,5 @@ export default connect(
 	mapStateToProps,
 	mapDispatchToProps
 )(App)
+
+// export default App

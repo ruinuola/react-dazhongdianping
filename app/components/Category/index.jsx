@@ -25,10 +25,10 @@ class Category extends React.Component {
 					<div className='carousel-item'>
 						<ul className="clear-fix">
 							<li className="float-left jingdian">景点</li>
-							<li className="float-left KTV">KTV</li>
+							<li className="float-left ktv">KTV</li>
 							<li className="float-left gouwu">购物</li>
 							<li className="float-left shenghuofuwu">生活服务</li>
-							<li className="float-left jianshenyundon">健身运动</li>
+							<li className="float-left jianshenyundong">健身运动</li>
 							<li className="float-left meifa">美发</li>
 							<li className="float-left qinzi">亲子</li>
 							<li className="float-left xiaochikuaican">小吃快餐</li>
