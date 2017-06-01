@@ -1,6 +1,8 @@
 import React from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 
+import Item from './Item'
+
 import './style.less'
 
 class CommentList extends React.Component {

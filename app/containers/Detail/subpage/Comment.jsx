@@ -3,6 +3,7 @@ import PureRenderMixin from 'react-addons-pure-render-mixin'
 import { getCommentData } from '../../../fetch/detail/detail'
 
 import CommentList from '../../../components/CommentList'
+import LoadMore from '../../../components/LoadMore'
 
 import './style.less'
 
@@ -22,10 +23,15 @@ class Comment extends React.Component {
             <div className="detail-comment-subpage">
             	<h2>用户点评</h2>
             	{
-            		this.state.data.length ?
-									<CommentList data={this.state.data}/> :
-									<div>加载中。。。</div>
+            		this.state.data.length
+                    ? <CommentList data={this.state.data}/>
+                    : <div>加载中...</div>
             	}
+                {
+                    this.state.hasMore
+                    ? <LoadMore isLoadingMore={this.state.isLoadingMore} loadMoreFn={this.loadMoreData.bind(this)}/>
+                    : ''
+                }
             </div>
         )
     }
@@ -82,4 +88,4 @@ class Comment extends React.Component {
     }
 }
 
-export default  Comment
+export default Comment

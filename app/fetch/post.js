@@ -7,7 +7,7 @@ function obj2params(obj){
 	var item;
 	for ( item in obj ) {
 		// encodeURIComponent() 函数可把字符串作为 URI 组件进行编码。
-		result += '&' + item + '=' + encodeURLComponent(obj[item]);
+		result += '&' + item + '=' + encodeURIComponent(obj[item]);
 	}
 
 	if (result) {
@@ -20,12 +20,12 @@ function obj2params(obj){
 // 发送post请求
 export function post(url, paramsObj){
 	var result = fetch(url, {
-		method: 'post',
-		credentials: 'include',
-		headers: {
-			'Accept': 'application/json, text/plain, */*',
-			'Content-Type': 'application/x-www-form-urlencoded'
-		},
+		method: 'POST',
+    credentials: 'include',
+    headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/x-www-form-urlencoded'
+    },
 		body: obj2params(paramsObj)  //注意post时候参数的形式
 	})
 

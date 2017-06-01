@@ -19,7 +19,6 @@ class DetailInfo extends React.Component {
       // console.log('DetailInfo:'+data)
       return (
           <div id="detail-info-container">
-            怎么不显示
             <div className="info-container clear-fix">
               <div className="info-img-container float-left">
                 <img src={data.img}/>
